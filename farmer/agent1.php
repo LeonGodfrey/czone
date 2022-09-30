@@ -14,7 +14,8 @@
 		//get agent name
 		$name = $agent_details[0]['name'];
 		//get agent phone
-		$phone = $agent_details[0]['phone'];
+		 $phone = $agent_details[0]['phone'];
+	
 		
 		//format the phone number with 256
 
@@ -56,7 +57,7 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 //insert into notification table
-		$notification = $db->insert('notification', 
+		$notification = $db->insert('notifications', 
 		['agent_id' => $agent, 'message' => $message, 'agent_name' => $name, 'order_id' => $id, 
 		'phone_number' => $phone, 'order_details' => $order_name, 
 	]);

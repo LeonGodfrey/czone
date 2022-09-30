@@ -1,4 +1,9 @@
-<?php include 'includes/session.php'; ?>
+<?php 
+include 'includes/session.php'; 
+include 'includes/DbAccess.php';
+
+$db = new DbAcess();
+?>
 <?php
 //check if order is comfirmed
 if (!(isset($_POST['placeOrder']))) {
@@ -9,15 +14,27 @@ if (!(isset($_POST['placeOrder']))) {
 	$order_date = date("Y-m-d");
 	$order_time = date("h:i:s A");
 
+	//get user details
+	$user_details =  $db->select('user', [], ['userID' =>  $user['userId']]);
+	//get user name
+	$name = $user_details[0]['name'];
+	//get user phone
+	$phone = $user_details[0]['phone'];
+	
+
 	try {
 		$total = 0;
 		$stmt = $conn->prepare("SELECT *, cart.cartId AS cartid, cart.quantity AS qty, product.userId AS userIdF FROM cart LEFT JOIN product ON product.pId=cart.pId WHERE cart.userId=:user");
-		$stmt->execute(['user' => $user['userId']]);		
+		$stmt->execute(['user' => $user['userId']]);	
 		
+		//generate transaction reference  based on time
+		$ref = 'cz'.date("Ymdhis");
+
 		foreach ($stmt as $row) {
 			//send individual orders
 			try {
 				$amount = $row['price'] * $row['qty'];
+				$total += $amount;
 				//generate order number
 				$orderNo = "cz" .rand(2001,9001);
 				//insert into order
@@ -45,6 +62,46 @@ if (!(isset($_POST['placeOrder']))) {
 				//exit();
 			}
 		}
+
+				//payment code
+				$curl = curl_init();
+
+				//genereate a unique transaction id based on the current time
+			   
+		
+			   curl_setopt_array($curl, array(
+				   CURLOPT_URL => 'https://wallet.ssentezo.com/api/deposit',
+				   CURLOPT_RETURNTRANSFER => true,
+				   CURLOPT_ENCODING => '',
+				   CURLOPT_MAXREDIRS => 10,
+				   CURLOPT_TIMEOUT => 0,
+				   CURLOPT_FOLLOWLOCATION => true,
+				   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				   CURLOPT_CUSTOMREQUEST => 'POST',
+				   CURLOPT_POSTFIELDS => array('amount' => $total, 
+				   'msisdn' => $phone,, 
+				   'environment' => 'production', 'callback' => 'google.com', 
+				   'externalReference' =>$ref,
+					'reason' => "payment for an order", 
+				   'currency' => 'UGX'),
+				   CURLOPT_HTTPHEADER => array(
+					   'Authorization: Basic NjExYjI2YzQtMmM2Yy00MDdjLWFlMjQtYzg2MDI5NDM0YjA0OjBiNzA2MmExNWZjOWE4NDE3ZDI1YmU4YmNmZGUxMWFj',
+					   'Cookie: PHPSESSID=amkga7fj3rclrijelckobn1igk'
+				   ),
+			   ));
+		
+			   $response = curl_exec($curl);
+		
+			   curl_close($curl);  
+
+			   //insert into payment table
+			   $res = $db->insert('payments', ['amount' => $total, 'customer_id' => $user['userId'], 'transaction_ref' => $ref, 
+			   'status' => 'pending',  'customer_name' => $name, 'phone_number'=>$phone, 'reason'=>'payment for an order']);
+			   
+
+			   
+
+				//payment code
 	} catch (PDOException $e) {
 		$output1 .= $e->getMessage();
 		//echo $output1;

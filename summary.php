@@ -124,7 +124,8 @@
 								<div class="card s-warning">
 									<form action="confirmed.php" method="POST" style="width:100%;">
 										
-										<center><button type="submit" value="yes" name="placeOrder" class="btn-lg bg-warning" style="width:100%;"><b>CONFIRM ORDER</b></button></center>
+										<center><button type="submit" value="yes" 
+										name="placeOrder" class="btn-lg bg-warning" style="width:100%;"><b>CONFIRM ORDER</b></button></center>
 										
 									</form>
 								</div>

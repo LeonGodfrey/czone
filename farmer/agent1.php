@@ -54,7 +54,14 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+//insert into notification table
+		$notification = $db->insert('notification', 
+		['agent_id' => $agent, 'message' => $message, 'agent_name' => $name, 'order_id' => $id, 
+		'phone_number' => $phone, 'order_details' => $order_name, 
+	]);
+	
+
  
 
 

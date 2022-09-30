@@ -79,7 +79,7 @@ if (!(isset($_POST['placeOrder']))) {
 				   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 				   CURLOPT_CUSTOMREQUEST => 'POST',
 				   CURLOPT_POSTFIELDS => array('amount' => $total, 
-				   'msisdn' => $phone,, 
+				   'msisdn' => $phone, 
 				   'environment' => 'production', 'callback' => 'google.com', 
 				   'externalReference' =>$ref,
 					'reason' => "payment for an order", 

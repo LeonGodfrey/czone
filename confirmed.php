@@ -13,7 +13,6 @@ if (!(isset($_POST['placeOrder']))) {
 	$output1 = "hello";
 	$order_date = date("Y-m-d");
 	$order_time = date("h:i:s A");
-
 	//get user details
 	$user_details =  $db->select('user', [], ['userID' =>  $user['userId']]);
 	//get user name
@@ -21,6 +20,28 @@ if (!(isset($_POST['placeOrder']))) {
 	//get user phone
 	$phone = $user_details[0]['phone'];
 	
+	//send message to the user
+	$message = "Hello $name, your order has been placed. Thank you.";
+
+
+	//send message
+	$curl = curl_init();
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://sms.thinkxsoftware.com/smsdashboard/views/api/send_message.php?message='.urlencode($message).'&sender_id=kayondo&phone_number='.$phone.'&api_key=b86d0f23e195ac0daace2ebd88a6c5984e9d3e7edb7ec399ca6f45015b26f431',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+));
+$response = curl_exec($curl);
+curl_close($curl);
+
+
+	//send message to the user
+
 
 	try {
 		$total = 0;
@@ -117,61 +138,64 @@ if (!(isset($_POST['placeOrder']))) {
 <?php include 'includes/header.php'; ?>
 
 <body class="hold-transition skin-blue layout-top-nav">
-	<div class="wrapper">
+    <div class="wrapper">
 
-		<?php include 'includes/navbar.php'; ?>
+        <?php include 'includes/navbar.php'; ?>
 
-		<div style="background-color:#fff;" class="content-wrapper">
-			<div class="container">
+        <div style="background-color:#fff;" class="content-wrapper">
+            <div class="container">
 
-				<!-- Content Header (Page header) -->
-				<section class="content-header">
-					<div class="container-fluid">
-						<div class="row mb-2">
-							<div class="col-sm-6">
-								<h1>Success</h1>
-							</div>
-							<div class="col-sm-6">
-								<ol class="breadcrumb float-sm-right">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Success</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
 
-									<li class="breadcrumb-item active">Order Information</li>
-								</ol>
-							</div>
-						</div>
-					</div><!-- /.container-fluid -->
-				</section>
+                                    <li class="breadcrumb-item active">Order Information</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
 
-				<!-- Main content -->
-				<section class="content">
+                <!-- Main content -->
+                <section class="content">
 
 
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card card-warning">
-									<div class="card-header">
-										<h3 class="card-title">
-											<i class="fas fa-check"></i>
-											Info...
-										</h3>
-									</div>
-									<div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-warning">
+                                    <div class="card-header">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-check"></i>
+                                            Info...
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
 
-										<p style="font-size:20px;"> <h3>Your order has been placed </h3></p>
-										<p>Wait for delivery.</p>
-										<h2>Continue <a href="index.php" class="info">Shopping</a> or to <a href="customer/home.php" class="info">Dashboard</a>!</h2>
-									</div>
-									<!-- /.card -->
-								</div>
-							</div>
-							<!-- /.card -->
-				</section>
-				<!-- /.content -->
-			</div>
-		</div>
-	</div>
+                                        <p style="font-size:20px;">
+                                        <h3>Your order has been placed </h3>
+                                        </p>
+                                        <p>Wait for delivery.</p>
+                                        <h2>Continue <a href="index.php" class="info">Shopping</a> or to <a
+                                                href="customer/home.php" class="info">Dashboard</a>!</h2>
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                </section>
+                <!-- /.content -->
+            </div>
+        </div>
+    </div>
 
-	<?php include 'includes/scripts.php'; ?>
+    <?php include 'includes/scripts.php'; ?>
 </body>
 <?php include 'includes/footer.php'; ?>
 

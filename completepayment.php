@@ -53,3 +53,5 @@ if(isset($response['status'])){
 
 
 }
+
+//* * * * * php /var/www/html/job/arnold/czone/completepayment.php

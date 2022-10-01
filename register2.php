@@ -48,6 +48,27 @@
 
 					$userid = $conn->lastInsertId();
 					$_SESSION['success'] = 'Account created Log in!';
+
+					//send a message
+					$message = "Welcome  $name , your account has been created successfully as a $type on Chicken Zone Marketing and Delivery Application . Thank you.";
+
+					//send message
+					$curl = curl_init();
+
+curl_setopt_array($curl, array(
+ CURLOPT_URL => 'https://sms.thinkxsoftware.com/smsdashboard/views/api/send_message.php?message='.urlencode($message).'&sender_id=kayondo&phone_number='.$phone.'&api_key=b86d0f23e195ac0daace2ebd88a6c5984e9d3e7edb7ec399ca6f45015b26f431',
+ CURLOPT_RETURNTRANSFER => true,
+ CURLOPT_ENCODING => '',
+ CURLOPT_MAXREDIRS => 10,
+ CURLOPT_TIMEOUT => 0,
+ CURLOPT_FOLLOWLOCATION => true,
+ CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+ CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
 					
 					//header('location: login.php');
 					echo'<script> window.location.href = "login.php";</script>';
@@ -68,6 +89,8 @@
 
 	}
 	else{
+
+
 		$_SESSION['error'] = 'Fill up signup form first';
 		header('location: signup.php');
 	}

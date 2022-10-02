@@ -28,29 +28,14 @@
           </a>
         </li>        
         <li class="nav-item">
-          <a href="placed.php" class="nav-link">
+          <a href="users.php" class="nav-link">
             <i class="nav-icon far fa-circle"></i>
             <p>
-             Placed Orders
+             Users
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="inroute.php" class="nav-link">
-            <i class="nav-icon far fa-circle"></i>
-            <p>
-             Orders In route
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="delivered.php" class="nav-link">
-            <i class="nav-icon far fa-circle"></i>
-            <p>
-             Delivered Orders
-            </p>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a href="profile.php" class="nav-link">
             <i class="nav-icon far fa-user"></i>

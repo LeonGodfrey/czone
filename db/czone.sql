@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 30, 2022 at 01:36 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Oct 02, 2022 at 03:21 PM
+-- Server version: 10.6.7-MariaDB-2ubuntu1.1
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,42 +50,20 @@ CREATE TABLE `checker` (
 --
 
 INSERT INTO `checker` (`id`, `checker`) VALUES
-(1, 'checker'),
-(2, 'checker'),
-(3, 'checker'),
-(4, 'checker'),
-(5, 'checker'),
-(6, 'checker'),
-(7, 'checker'),
-(8, 'checker'),
-(9, 'checker'),
-(10, 'checker'),
-(11, 'checker'),
-(12, 'checker'),
-(13, 'checker'),
-(14, 'checker'),
-(15, 'checker'),
-(16, 'checker'),
-(17, 'checker'),
-(18, 'checker'),
-(19, 'checker'),
-(20, 'checker'),
-(21, 'checker'),
-(22, 'checker'),
-(23, 'checker'),
-(24, 'checker'),
-(25, 'checker'),
-(26, 'checker'),
-(27, 'checker'),
-(28, 'checker'),
-(29, 'checker'),
-(30, 'checker'),
-(31, 'checker'),
-(32, 'checker'),
-(33, 'checker'),
-(34, 'checker'),
-(35, 'checker'),
-(36, 'checker');
+(1, 'success'),
+(2, 'success'),
+(3, 'success'),
+(4, 'success'),
+(5, 'success'),
+(6, 'success'),
+(7, 'success'),
+(8, 'success'),
+(9, 'success'),
+(10, 'success'),
+(11, 'success'),
+(12, 'success'),
+(13, 'success'),
+(14, 'success');
 
 -- --------------------------------------------------------
 
@@ -108,14 +86,9 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `agent_id`, `agent_name`, `order_id`, `message`, `order_details`, `phone_number`) VALUES
-(1, '3', 'Leonardo', '14', 'You have been assigned order number cz2364. The order details are as follows: Product name: 1kg Chicken Hearts, Quantity: 2, Amount: 24000, Price: 12000. Please login to your account to view the order details.', 'cz2364', '078907543'),
-(2, '3', 'Leonardo', '14', 'You have been assigned order number cz2364. The order details are as follows: Product name: 1kg Chicken Hearts, Quantity: 2, Amount: 24000, Price: 12000. Please login to your account to view the order details.', 'cz2364', '078907543'),
-(3, '3', 'Leonardo', '14', 'You have been assigned order number cz2364. The order details are as follows: Product name: 1kg Chicken Hearts, Quantity: 2, Amount: 24000, Price: 12000. Please login to your account to view the order details.', 'cz2364', '078907543'),
-(4, '3', 'Leonardo', '14', 'You have been assigned order number cz2364. The order details are as follows: Product name: 1kg Chicken Hearts, Quantity: 2, Amount: 24000, Price: 12000. Please login to your account to view the order details.', 'cz2364', '078907543'),
-(5, '3', 'Leonardo', '15', 'You have been assigned order number cz2843. The order details are as follows: Product name: Gizzards, Quantity: 2, Amount: 31000, Price: 15500. Please login to your account to view the order details.', 'cz2843', '078907543'),
-(6, '3', 'Leonardo', '15', 'You have been assigned order number cz2843. The order details are as follows: Product name: Gizzards, Quantity: 2, Amount: 31000, Price: 15500. Please login to your account to view the order details.', 'cz2843', '078907543'),
-(7, '3', 'Leonardo', '16', 'Hello Leonardo, you have been assigned order number cz2277 for 2 Off Layer at a price of 16000 per unit. The total amount is 32000. Please login to your account to view the order details. Thank you.', 'cz2277', '078907543'),
-(8, '3', 'Leonardo', '1', 'Hello Leonardo, you have been assigned order number cz7416 for 1 1kg Chicken Hearts at a price of 12000 per unit. The total amount is 12000. Please login to your account to view the order details. Thank you.', 'cz7416', '078907543');
+(1, '3', 'Leonardo', '4', 'Hello Leonardo, you have been assigned an order. Order number: cz8637, Order name: 1kg Chicken Hearts, Order quantity: 1, Order price: 12000, Order total: 12000. Thank you.', '1kg Chicken Hearts', '078907543'),
+(2, '3', 'Leonardo', '5', 'Hello Leonardo, you have been assigned an order. Order number: cz3618, Order name: 1.5 kg Chicken Wings, Order quantity: 1, Order price: 15000, Order total: 15000. Thank you.', '1.5 kg Chicken Wings', '0753446252'),
+(3, '3', 'Leonardo', '6', 'Hello Leonardo, you have been assigned an order. Order number: cz4951, Order name: 1kg Chicken Hearts, Order quantity: 1, Order price: 12000, Order total: 12000. Thank you.', '1kg Chicken Hearts', '0753446252');
 
 -- --------------------------------------------------------
 
@@ -142,15 +115,18 @@ INSERT INTO `payments` (`id`, `customer_name`, `amount`, `reason`, `status`, `ph
 (1, 'Katende Nicholas', '23000', 'payment for order', 'pending', '256759983853', 'cz20220930021608', 8),
 (2, 'Katende Nicholas', '27500', 'payment for order', 'pending', '256759983853', 'cz20220930021951', 8),
 (3, 'Katende Nicholas', '0', 'payment for order', 'pending', '256759983853', 'cz20220930022121', 8),
-(4, 'Katende Nicholas', '27500', 'payment for order', 'pending', '256759983853', 'cz20220930022420', 8);
+(4, 'Katende Nicholas', '27500', 'payment for order', 'pending', '256759983853', 'cz20220930022420', 8),
+(5, 'Ssegawa', '27000', 'payment for an order', 'pending', '0753446252', 'cz20220930110042', 2),
+(6, 'Ssegawa', '12000', 'payment for an order', 'pending', '0753446252', 'cz20220930110736', 2),
+(7, 'Ssegawa', '8000', 'payment for an order', 'pending', '0753446252', 'cz20220930112613', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `porder`
+-- Table structure for table `pOrder`
 --
 
-CREATE TABLE `porder` (
+CREATE TABLE `pOrder` (
   `orderId` int(11) NOT NULL,
   `orderNo` varchar(100) DEFAULT NULL,
   `pName` varchar(200) DEFAULT NULL,
@@ -167,12 +143,17 @@ CREATE TABLE `porder` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `porder`
+-- Dumping data for table `pOrder`
 --
 
-INSERT INTO `porder` (`orderId`, `orderNo`, `pName`, `price`, `quantity`, `amount`, `status`, `pId`, `order_date`, `order_time`, `userIdF`, `userIdC`, `userIdD`) VALUES
+INSERT INTO `pOrder` (`orderId`, `orderNo`, `pName`, `price`, `quantity`, `amount`, `status`, `pId`, `order_date`, `order_time`, `userIdF`, `userIdC`, `userIdD`) VALUES
 (1, 'cz7416', '1kg Chicken Hearts', '12000', 1, '12000', 'assigned', NULL, '2022-09-30', '02:24:20 PM', 1, 8, 3),
-(2, 'cz5275', 'Gizzards', '15500', 1, '15500', 'placed', NULL, '2022-09-30', '02:24:20 PM', 1, 8, NULL);
+(2, 'cz5275', 'Gizzards', '15500', 1, '15500', 'placed', NULL, '2022-09-30', '02:24:20 PM', 1, 8, 3),
+(3, 'cz2244', '10 Egg Carton', '8000', 1, '8000', 'placed', NULL, '2022-09-30', '10:45:48 PM', 1, 2, 3),
+(4, 'cz8637', '1kg Chicken Hearts', '12000', 1, '12000', 'placed', NULL, '2022-09-30', '11:00:42 PM', 1, 2, 3),
+(5, 'cz3618', '1.5 kg Chicken Wings', '15000', 1, '15000', 'placed', NULL, '2022-09-30', '11:00:42 PM', 1, 2, 3),
+(6, 'cz4951', '1kg Chicken Hearts', '12000', 1, '12000', 'placed', NULL, '2022-09-30', '11:07:36 PM', 1, 2, 3),
+(7, 'cz8441', '10 Egg Carton', '8000', 1, '8000', 'placed', NULL, '2022-09-30', '11:26:13 PM', 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -195,10 +176,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`pId`, `pName`, `pDesc`, `price`, `quantity`, `photo`, `userId`) VALUES
-(10, '1kg Chicken Hearts', 'This is 1kg of  Chicken Hearts. They are well cleaned and ready to roast for barbecue or pan frying.', '12000', 19, '1kg_chicken_heartsdisarray.jpeg', 1),
+(10, '1kg Chicken Hearts', 'This is 1kg of  Chicken Hearts. They are well cleaned and ready to roast for barbecue or pan frying.', '12000', 17, '1kg_chicken_heartsdisarray.jpeg', 1),
 (11, 'Gizzards', 'Clean \"Stone-Free\" gizzards weighing between 1.4 to 1.7 kgs available for our customers.', '15500', 14, 'gizzardsdisarray.jpeg', 1),
-(12, '10 Egg Carton', 'These are packed in a box carton for easier carriage and handling. Simply keep in a cool dry place.', '8000', 20, '10_egg_cartondis1_.jpeg', 1),
-(13, '1.5 kg Chicken Wings', 'This is 1.5kg of cleanly cut fresh Chicken wings packed in a plastic platter ready for preparation at your convience.', '15000', 20, '1.5_kg_chicken_wingsdis1_.jpeg', 1),
+(12, '10 Egg Carton', 'These are packed in a box carton for easier carriage and handling. Simply keep in a cool dry place.', '8000', 18, '10_egg_cartondis1_.jpeg', 1),
+(13, '1.5 kg Chicken Wings', 'This is 1.5kg of cleanly cut fresh Chicken wings packed in a plastic platter ready for preparation at your convience.', '15000', 19, '1.5_kg_chicken_wingsdis1_.jpeg', 1),
 (14, 'Half Tray of Eggs', 'No need to worry about bulk purchase. Grab 15 box packed eggs from ChickenZone and enjoy purchasing in your comfort.', '6000', 50, 'half_tray_of_eggsdis1_.jpeg', 1),
 (15, 'Chicken Breast (1/2)', 'Clean and Fresh Chicken Poultry Breasts only packed in recyclable plastic weighing between 1.4 to 1.7 kgs for you to enjoy.', '8500', 50, 'chicken_breast_(half_kilo)dis1_.jpeg', 1),
 (16, 'Tray of Eggs', 'These are 30 eggs packed in traditional box trays. Simply store surplus in a cool dry place for up to 2 months', '12500', 100, 'tray_of_eggsdis1_.jpeg', 1),
@@ -243,7 +224,8 @@ INSERT INTO `user` (`userId`, `name`, `email`, `phone`, `location`, `nin`, `pass
 (5, 'Patricio Bioko', 'tripacio@gmail.com', '0700763051', 'Olympia hostel', 'CM0022510CQYG', '$2y$10$XGr94L3yHj/dfwY3n6nS6ueRJqGsyoUGZEwj8giXezLmWYobq2Pym', 'agent', 'I use a bicycle.', 'Bicycle', NULL, NULL, NULL),
 (6, 'Munduru Sandra', 'sandra@gmail.com', '0702000222', 'Olympia hostel', NULL, '$2y$10$kC9/WFUN.CW9GFzVtWF7K.yydpbPmK3v37RMonu1CPSOOg4NCQ.ea', 'customer', NULL, NULL, NULL, NULL, 'e6.png'),
 (7, 'Jadon Sancho', 'jadon@gmail.com', '0752000111', 'Manchester', NULL, '$2y$10$MFdCOO9PKZVCZpM47YoLqeD4UzVBep29xpoZWbDhxNbT/4BvqoYny', 'farmer', 'I live in the city of Manchester. I love eating chicken.', NULL, NULL, NULL, NULL),
-(8, 'Katende Nicholas', 'katznicho@gmail.com', '0759983853', 'Kampala, kawempe', NULL, '$2y$10$MxOC3l25uAj4CxjDsITwMO9u0lBb.0aKYzrE5LY5Rsgad9.UpbEb2', 'customer', 'Am a good person', NULL, NULL, NULL, NULL);
+(8, 'Katende Nicholas', 'katznicho@gmail.com', '0759983853', 'Kampala, kawempe', NULL, '$2y$10$MxOC3l25uAj4CxjDsITwMO9u0lBb.0aKYzrE5LY5Rsgad9.UpbEb2', 'customer', 'Am a good person', NULL, NULL, NULL, NULL),
+(10, 'czone admin', 'czoneadmin@gmail.com', '0753446252', 'nansanaguhbin', NULL, '$2y$10$P5Km1WyC8.VosLvN0Ttu1.nektOv3bbKFZOSm0At7.nVVCsbpnJDW', 'admin', 'hello', NULL, NULL, NULL, 'IMG_20201024_141811_646.jpg');
 
 --
 -- Indexes for dumped tables
@@ -276,9 +258,9 @@ ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `porder`
+-- Indexes for table `pOrder`
 --
-ALTER TABLE `porder`
+ALTER TABLE `pOrder`
   ADD PRIMARY KEY (`orderId`);
 
 --
@@ -302,31 +284,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `checker`
 --
 ALTER TABLE `checker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `porder`
+-- AUTO_INCREMENT for table `pOrder`
 --
-ALTER TABLE `porder`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `pOrder`
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -338,7 +320,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

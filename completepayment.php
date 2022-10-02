@@ -2,6 +2,9 @@
 include 'includes/DbAccess.php';
 $db = new DbAcess();
 
+//cron job
+//$db->insert('checker', ['checker' => 'success']);
+
 //select from payment table where status is pending
 $pending_payments = $db->select('payments', [], ['status' => 'pending']);
 //loop through the pending payments

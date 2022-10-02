@@ -16,8 +16,8 @@ class DbAcess
         $this->db_name = $database;
 
         $servername = "127.0.0.1";
-        $username = "root";
-        $password = "!Log19tan88";
+        $username = "admin";
+        $password = "admin";
         $ip_address = $_SERVER['REMOTE_ADDR'];
 
 

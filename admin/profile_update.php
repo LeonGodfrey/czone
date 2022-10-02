@@ -6,10 +6,10 @@
 		$name = $_POST['name'];		
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
-		$location = $_POST['location'];			
+				
 		$password = $_POST['password'];
 		$oldPassword = $_POST['oldPassword'];
-		$description = $_POST['description'];
+		
 		$photo = $_FILES['photo']['name'];
 	
 			if(!empty($photo)){ //upload user photo
@@ -17,11 +17,11 @@
 				$filename = $photo;	
 			}
 			else{
-				$filename = $agent['photo'];
+				$filename = $admin['photo'];
 			}
 			
 			if($password == ""){
-				$password = $agent['password'];
+				$password = $admin['password'];
 			}
 			else{
 				$password = password_hash($password, PASSWORD_DEFAULT);
@@ -30,8 +30,8 @@
 			$conn = $pdo->open();
 
 			try{
-				$stmt = $conn->prepare("UPDATE user SET email=:email, password=:password, name=:name, photo=:photo, phone=:phone, location=:location, description=:description  WHERE userId=:id");
-				$stmt->execute(['email'=>$email, 'password'=>$password, 'name'=>$name, 'photo'=>$filename, 'phone'=>$phone, 'location'=>$location, 'description'=>$description,'id'=>$agent['userId']]);
+				$stmt = $conn->prepare("UPDATE user SET email=:email, password=:password, name=:name, photo=:photo, phone=:phone WHERE userId=:id");
+				$stmt->execute(['email'=>$email, 'password'=>$password, 'name'=>$name, 'photo'=>$filename, 'phone'=>$phone, 'id'=>$admin['userId']]);
 
 				$_SESSION['success'] = 'Account updated successfully';
 				header('location: home.php');

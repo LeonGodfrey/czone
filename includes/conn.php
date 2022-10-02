@@ -5,8 +5,8 @@ date_default_timezone_set("Africa/Kampala");
 Class Database{
  
 	private $server = "mysql:host=localhost;dbname=czone";
-	private $username = "root";
-	private $password = "!Log19tan88";
+	private $username = "admin";
+	private $password = "admin";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	

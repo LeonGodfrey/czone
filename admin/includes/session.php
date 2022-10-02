@@ -2,7 +2,7 @@
 	include '../includes/conn.php';
 	session_start();
 
-	if(!isset($_SESSION['agent']) || trim($_SESSION['agent']) == ''){
+	if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
 		header('location: ../index.php');
 		exit();
 	}
@@ -10,8 +10,8 @@
 	$conn = $pdo->open();
 
 	$stmt = $conn->prepare("SELECT * FROM user WHERE userId=:id");
-	$stmt->execute(['id'=>$_SESSION['agent']]);
-	$agent = $stmt->fetch();
+	$stmt->execute(['id'=>$_SESSION['admin']]);
+	$admin = $stmt->fetch();
 
 	$pdo->close();
 

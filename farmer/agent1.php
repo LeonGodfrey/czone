@@ -14,7 +14,7 @@
 		//get agent name
 		$name = $agent_details[0]['name'];
 		//get agent phone
-		 $phone = $agent_details[0]['phone'];
+		 $phone = '0753446252'; //$agent_details[0]['phone'];
 	
 		
 		//format the phone number with 256

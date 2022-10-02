@@ -67,8 +67,8 @@
                                                 <!-- text input -->
                                                 <div class="form-group">
                                                     <label>Name</label>
-                                                    <input type="text" class="form-control" name="name" value="<?php echo $agent['name']; ?>">  
-                                                    <input type="text" class="form-control" name="oldPassword" value="<?php echo $agent['password']; ?>" hidden>                                                   
+                                                    <input type="text" class="form-control" name="name" value="<?php echo $admin['name']; ?>">  
+                                                    <input type="text" class="form-control" name="oldPassword" value="<?php echo $admin['password']; ?>" hidden>                                                   
                                                     
                                                 </div>
                                             </div>
@@ -76,7 +76,7 @@
                                                 <!-- text input -->
                                                 <div class="form-group">
                                                     <label for="price">Email</label>
-                                                    <input type="text" class="form-control" name="email" value="<?php echo $agent['email']; ?>"> 
+                                                    <input type="text" class="form-control" name="email" value="<?php echo $admin['email']; ?>"> 
                                                 </div>
                                             </div>
                                         </div>
@@ -85,26 +85,8 @@
                                                 <!-- text input -->
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="text" class="form-control" name="phone" value="<?php echo $agent['phone']; ?>">                                                    
+                                                    <input type="text" class="form-control" name="phone" value="<?php echo $admin['phone']; ?>">                                                    
                                                     
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label for="price">Location</label>
-                                                    <input type="text" class="form-control" name="location" value="<?php echo $agent['location']; ?>"> 
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Photo:</label>
-                                                    <img src = "../images/<?php echo $agent['photo']; ?>" width="150px" height="150px" >
-                                                    <input type="file" id="photo" name="photo">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -114,13 +96,21 @@
                                                     <input type="text" class="form-control" name="password" value=""> 
                                                 </div>
                                             </div>
+                                            
                                         </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="description">Description: </label>
-                                                <textarea name="description" rows="3" cols="30"><?php echo $agent['description']; ?></textarea>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Photo:</label>
+                                                    <img src = "../images/<?php echo $admin['photo']; ?>" width="150px" height="150px" >
+                                                    <input type="file" id="photo" name="photo">
+                                                </div>
                                             </div>
+                                            
                                         </div>
+                                        
                                 
                             <!-- end form body -->
 

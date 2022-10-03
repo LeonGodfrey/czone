@@ -16,12 +16,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Placed Orders</h1>
+              <h1>Current Payments</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                <li class="breadcrumb-item active">orders in route</li>
+                <li class="breadcrumb-item active">Payments</li>
               </ol>
             </div>
           </div>
@@ -60,17 +60,18 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Users</h3>
+                  <h3 class="card-title">Payments</h3>
+
+                  <!-- add a payment button -->
+                    <div class="card-tools">
+                        <a href="./completedpayments.php"  class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> 
+                         Check Status
+                    </a>
+                    </div>
+
 
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -80,10 +81,10 @@
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Location</th>
-                        <th>Type</th> 
+                        <th>Amount</th>
+                        <th>Phone Number</th>
+                        <th>Transaction Ref</th>
+                        <th>Status</th> 
                                                
                       </tr>
                     </thead>
@@ -92,17 +93,17 @@
                       $conn = $pdo->open();
                       try {
 
-                        $stmt = $conn->prepare("SELECT * from user where type != :type");
-                        $stmt->execute(['type' => 'admin']);
+                        $stmt = $conn->prepare("SELECT * from payments ");
+                        $stmt->execute();
                         foreach ($stmt as $row) {
 
                           echo "
                           <tr>
-                            <td>" . $row['name'] . "</td>
-                            <td>" . $row['email'] . "</td>
-                            <td>" . $row['phone'] . "</td>
-                            <td>" . $row['location'] . "</td>
-                            <td>" . $row['type'] . "</td>                            
+                            <td>" . $row['customer_name'] . "</td>
+                            <td>" . $row['amount'] . "</td>
+                            <td>" . $row['phone_number'] . "</td>
+                            <td>" . $row['transaction_ref'] . "</td>
+                            <td>" . $row['status'] . "</td>                            
                             
                             
                         ";

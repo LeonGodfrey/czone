@@ -2,8 +2,6 @@
 include 'includes/DbAccess.php';
 $db = new DbAcess();
 
-//cron job
-//$db->insert('checker', ['checker' => 'success']);
 
 //select from payment table where status is pending
 $pending_payments = $db->select('payments', [], ['status' => 'pending']);
@@ -52,6 +50,10 @@ if(isset($response['status'])){
 }
 
 
+
+//redirect to the payment page
+$_SESSION['success'] = "The statuses of Pending payments have been checked ";
+header('Location:./payments.php');
 
 
 

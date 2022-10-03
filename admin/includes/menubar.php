@@ -35,6 +35,15 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="payments.php" class="nav-link">
+            <i class="nav-icon far fa-circle"></i>
+            <p>
+              Payments
+            </p>
+          </a>
+        </li>
         
         <li class="nav-item">
           <a href="profile.php" class="nav-link">

@@ -82,7 +82,7 @@ if (isset($_SESSION['user'])) {
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="location" placeholder="Farm location" value="<?php echo (isset($_SESSION['location'])) ? $_SESSION['location'] : '' ?>" required>
+                <input type="text" class="form-control" name="location" placeholder="Your location" value="<?php echo (isset($_SESSION['location'])) ? $_SESSION['location'] : '' ?>" required>
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-map-marker"></span>
@@ -105,10 +105,7 @@ if (isset($_SESSION['user'])) {
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
-                <textarea class="form-control" name="description" placeholder="Farm description" value="<?php echo (isset($_SESSION['description'])) ? $_SESSION['description'] : '' ?>" required></textarea>
 
-              </div>
 
               <div class="row">
                 
@@ -258,10 +255,10 @@ if (isset($_SESSION['user'])) {
                   </div>
                 </div>
               </div>
-              <div class="input-group mb-3">
+              <!-- <div class="input-group mb-3">
                 <textarea class="form-control" name="description" placeholder="Agent description" value="<?php echo (isset($_SESSION['description'])) ? $_SESSION['description'] : '' ?>" required></textarea>
 
-              </div>
+              </div> -->
 
               <div class="row">
                 
